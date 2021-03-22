@@ -1,6 +1,7 @@
 import cv2
 import sys
 import os
+import pandas as pd
 os.environ['DISPLAY'] = ':0'
 
 def show_img(image):
@@ -40,7 +41,8 @@ def frame_faces_extractor(path_file, save_path, class_type):
         if success == False: 
             print("EXTRACTION COMPLETED")
             break
-            
+        
+        #to detect faces we have to convert to grayscale
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         
         faces = faceCascade.detectMultiScale(
@@ -101,9 +103,36 @@ def start_capture_test():
     video_capture.release()
     cv2.destroyAllWindows()
 
+def create_csv(path, label):
+    subdirectories = os.listdir(path)
+    ret_vect  = []
+    for images in subdirectories:
+        temp = {
+            'path':path + images,
+            'label':label
+        }
+        ret_vect.append(temp)
+    return pd.DataFrame(data=ret_vect, columns=['path','label'])
+'''
+string_path_badly_mask = 'Image_creator_script/video/badly_masked_{}.mp4'
+for i in range(1,4,1):
+    frame_faces_extractor(string_path_badly_mask.format(i), "Image_creator_script/img_faces_only/badly_masked_images/{}".format(i), "BADLY_MASKED")
+
+
 #start_capture_two("Image_creator_script/test_video.mp4","Image_creator_script/img_ret/no_mask_img/", "NO-MASK")
 print("START")
-frame_faces_extractor("Image_creator_script/test_video_masked.mp4","Image_creator_script/img_faces_only/masked_images/", "MASKED")
-frame_faces_extractor("Image_creator_script/test_video_nomask.mp4","Image_creator_script/img_faces_only/no_mask_images/", "NO-MASKED")
+string_path_mask = 'Image_creator_script/video/mask_{}.mp4'
+string_path_no_mask = 'Image_creator_script/video/no_mask_{}.mp4'
+for i in range(1,7,1):
+    frame_faces_extractor(string_path_mask.format(i),"Image_creator_script/img_faces_only/masked_images/{}".format(i), "MASKED")
+    frame_faces_extractor(string_path_no_mask.format(i),"Image_creator_script/img_faces_only/no_mask_images/{}".format(i), "NO-MASKED")
 
 #start_capture_test()
+'''
+
+df1 = create_csv('Image_creator_script/img_faces_only/masked_images', "MASKED")
+df2 = create_csv('Image_creator_script/img_faces_only/no_mask_images', "NOT_MASKED")
+df3 = create_csv('Image_creator_script/img_faces_only/badly_masked_images', "BADLY_MASKED")
+df = pd.concat([df1, df2, df3])
+df.to_csv('labels.csv', index=False)
+
