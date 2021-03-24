@@ -1,4 +1,5 @@
 # haar cascade to extract faces from video
+import cv2
 class FaceDetector:
     def __init__(self, bottom, top):
         self.bottom = bottom
@@ -40,4 +41,3 @@ class FaceDetector:
             f+=1
         cap.release()
         cv2.destroyAllWindows()
-
