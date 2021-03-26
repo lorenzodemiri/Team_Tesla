@@ -3,7 +3,7 @@
 #### Strive School Build Week 3 project
 Face Mask Detection system built with OpenCV and PyTorch using Computer Vision and Deep Learning concepts in order to detect face mask usage.
 
-![](facemaskdetection.png)
+![](small.png)
 
 
 # Team
