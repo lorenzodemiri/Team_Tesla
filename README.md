@@ -3,7 +3,7 @@
 #### Strive School Build Week 3 project
 Face Mask Detection system built with OpenCV and PyTorch using Computer Vision and Deep Learning concepts in order to detect face mask usage.
 
-![](faceDetected.jpg)
+![](facemaskdetection.png)
 
 
 # Team
@@ -52,7 +52,7 @@ This allows us to keep track of the model's performance.
 ## Model performance
 Our model gave us 95% accuracy after training.
 
-![](accuracy.png)
+![](accuracy.PNG)
 
 
 ## Project Demo
