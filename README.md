@@ -1,37 +1,64 @@
 
 # Face Mask Detector 
 #### Strive School Build Week 3 project
+Face Mask Detection system built with OpenCV and PyTorch using Computer Vision and Deep Learning concepts in order to detect face mask usage.
 
-![](/work/faceDetected.jpg)
+![](faceDetected.jpg)
 
-# Contributors List
+
+# Team
 * [Bence Kovacs](https://github.com/kovacsbelsen)
 * [Lorenzo Demiri](https://github.com/lorenzodemiri)
 * [Michal Podlaszuk](https://github.com/MichalPodlaszuk)
 * [Agnese Marchisella Navarro](https://github.com/comicodex)
 
+
 # Introduction
-Considering the state of the world today with thousands of people dying everyday due to the Covid-19 pandemic, we decided to help a little by creating this project. Our goal is to train a custom deep learning model to detect whether a person is wearing or not wearing a face mask and if he's wearing it correctly, that works both on images and in real-time video streams.
-
-# Approach
-To accomplish this task, we utilize Computer Vision and Deep Learning modules.
-
-# Tasks
-## Creation of a custom dataset
-* We start by creating our own custom dataset, capturing images with our desktop camera and the OpenCV library wearing MASK, NO MASK and BAD MASK.
-* We then proceed with annotating and labelling facial landmarks by drawing a rectangular bounding box around the face and keypoints on the eyes.
-* Finally, we merge all images (our own and our peers') in the respective mask, no mask and bad mask folders for the creation of a larger dataset to feed our training model.
-
-## Pre-processing the images
-* Our images need to be pre-processed in order for the model to learn from them and properly classify them.
-* With Computer Vision techniques, we convert the color from BGR to grayscale and resize them to 224x224 pixels.
-
-## Training the model and Fast.AI
-We start tackling our classification problem by training different pre-trained classifiers but soon switch our attention to [Fast.AI](https://docs.fast.ai/index.html), a higher-level built in library in Pytorch, which gives us the best accuracy results (96%).  
-
-<br>
+Considering the state of the world today with thousands of people dying everyday due to the Covid-19 pandemic, wearing a face mask is crucial in minimizing the spread of the virus. Our project consists in the creation of a custom deep learning model to detect whether a person is wearing or not wearing a face mask and if they are wearing it correctly that works both on static images and in real-time video streams. This project can be easily integrated in real-life applications in shops, schools, airports, offices and public places to ensure that public safety guidelines are followed.
 
 
+# Framework used
+* [OpenCV](https://opencv.org)
+* [Haar Cascades Face Detector](https://github.com/opencv/opencv/tree/master/data/haarcascades)
+* [PyTorch](https://pytorch.org)
+* [Fast.AI](https://docs.fast.ai)
+* [ResNet34](https://https://pytorch.org/hub/pytorch_vision_resnet/)
+
+![](resnet34architecture.jpg)
 
 
+# Dataset
+We created our own custom dataset with 6829 images belonging to three different classes:  ['bad_mask', 'good_mask', 'no_mask'] 
+This is done by capturing images with our desktop cameras and the OpenCV library and labelling facial landmarks by drawing a rectangular bounding box around the face and keypoints on the eyes. The last step consists in merging all the images (our own and our peers') in their respective folders for the creation of the final dataset.
+
+
+## Face Detection
+We use the Haar Cascades Face Detector to extract faces from the images.
+
+![](faceextraction.PNG)
+
+
+## Mask, no mask or bad mask classification
+A Face Mask Classifier model (ResNet34) is trained for identifying people not wearing a face mask. For aiding the training process, augmented masked faces are generated using facial landmarks. We test it on two validation sets:
+
+* [Real-World-Masked-Face-Dataset](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset)
+* our own custom dataset
+
+This allows us to keep track of the model's performance. 
+
+![](classification.PNG)
+
+
+## Model performance
+Our model gave us 95% accuracy after training.
+
+![](accuracy.png)
+
+
+## Project Demo
+[Face Mask Detector](https://drive.google.com/file/d/1h1-cLRCltDYIkGdMwj1TToPM6Fnqy6jP/view)
+
+
+## Final note
+Thank you for visiting our Repository!
 
