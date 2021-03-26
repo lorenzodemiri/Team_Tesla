@@ -24,7 +24,7 @@ Considering the state of the world today with thousands of people dying everyday
 * [Fast.AI](https://docs.fast.ai)
 * [ResNet34](https://https://pytorch.org/hub/pytorch_vision_resnet/)
 
-![](resnet34architecture.jpg)
+![](resnet_small.jpg)
 
 
 # Dataset
