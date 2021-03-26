@@ -7,10 +7,10 @@ Face Mask Detection system built with OpenCV and PyTorch using Computer Vision a
 
 
 # Team
-* [Bence Kovacs](https://github.com/kovacsbelsen)
-* [Lorenzo Demiri](https://github.com/lorenzodemiri)
-* [Michal Podlaszuk](https://github.com/MichalPodlaszuk)
-* [Agnese Marchisella Navarro](https://github.com/comicodex)
+* [Bence](https://github.com/kovacsbelsen)
+* [Lorenzo](https://github.com/lorenzodemiri)
+* [Michal](https://github.com/MichalPodlaszuk)
+* [Agnese](https://github.com/comicodex)
 
 
 # Introduction
